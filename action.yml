@@ -1,5 +1,7 @@
 name: 'Azure OpenAI action'
-description: 'This action enables you to call the Azure OpenAI Service Chat Completions API within your GitHub Actions workflow.'
+description:
+  'This action enables you to call the Azure OpenAI Service Chat Completions API
+  within your GitHub Actions workflow.'
 author: '@yuichielectric'
 
 branding:
