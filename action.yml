@@ -12,18 +12,14 @@ inputs:
   api_url:
     description: 'The endpoint URL of Azure OpenAI Services'
     required: true
+  deployment_id:
+    description: 'The deployment ID of Azure OpenAI Services'
+    required: true
   api_key:
     description: 'The API key to run Azure OpenAI Services'
     required: true
-  model:
-    description: 'The name of the model to be used. Default is "gpt-4o".'
-    required: true
-    default: 'gpt-4o'
   prompt:
     description: 'The prompt to pass to the model'
-    required: true
-  input_text:
-    description: 'The input to pass to the model'
     required: true
 
 # Define your outputs here.
