@@ -14,7 +14,7 @@ export async function run(): Promise<void> {
     const inputText: string = core.getInput('input_text')
 
     const requestBody = {
-      model: model,
+      model,
       messages: [
         { role: 'system', content: prompt },
         { role: 'user', content: inputText }
