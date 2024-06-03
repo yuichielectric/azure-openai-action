@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-const { OpenAIClient, AzureKeyCredential } = require('@azure/openai')
+import { OpenAIClient, AzureKeyCredential } from '@azure/openai'
 
 /**
  * The main function for the action.
@@ -13,7 +13,7 @@ export async function run(): Promise<void> {
     const prompt: string = core.getInput('prompt')
 
     const client = new OpenAIClient(apiUrl, new AzureKeyCredential(apiKey))
-    const { choices } = await client.getCompletions(deploymentId, prompt)
+    const { choices } = await client.getCompletions(deploymentId, [prompt])
     core.info(`Response: ${choices}`)
     const response = choices[0].text
     core.setOutput('response', response)

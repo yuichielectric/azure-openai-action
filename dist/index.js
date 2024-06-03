@@ -27247,7 +27247,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
 const core = __importStar(__nccwpck_require__(2186));
-const { OpenAIClient, AzureKeyCredential } = __nccwpck_require__(8946);
+const openai_1 = __nccwpck_require__(8946);
 /**
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
@@ -27258,8 +27258,8 @@ async function run() {
         const deploymentId = core.getInput('deployment_id');
         const apiKey = core.getInput('api_key');
         const prompt = core.getInput('prompt');
-        const client = new OpenAIClient(apiUrl, new AzureKeyCredential(apiKey));
-        const { choices } = await client.getCompletions(deploymentId, prompt);
+        const client = new openai_1.OpenAIClient(apiUrl, new openai_1.AzureKeyCredential(apiKey));
+        const { choices } = await client.getCompletions(deploymentId, [prompt]);
         core.info(`Response: ${choices}`);
         const response = choices[0].text;
         core.setOutput('response', response);
