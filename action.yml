@@ -1,13 +1,12 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Azure OpenAI action'
+description: 'This action enables you to call the Azure OpenAI Service Chat Completions API
+within your GitHub Actions workflow.'
+author: '@yuichielectric'
 
-# Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: 'skip-forward'
+  color: 'gray-dark'
 
-# Define your inputs here.
 inputs:
   api_url:
     description: 'The endpoint URL of Azure OpenAI Services'
@@ -25,7 +24,6 @@ inputs:
     description: 'The text to pass to the model'
     required: true
 
-# Define your outputs here.
 outputs:
   response:
     description: 'The response from Azure OpenAI Services'
