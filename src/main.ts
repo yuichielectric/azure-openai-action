@@ -10,12 +10,18 @@ export async function run(): Promise<void> {
     const apiUrl: string = core.getInput('api_url')
     const deploymentId: string = core.getInput('deployment_id')
     const apiKey: string = core.getInput('api_key')
-    const prompt: string = core.getInput('prompt')
-
+    const prompt: string = core.getInput('system_prompt')
+    const input: string = core.getInput('input_text')
     const client = new OpenAIClient(apiUrl, new AzureKeyCredential(apiKey))
-    const { choices } = await client.getCompletions(deploymentId, [prompt])
+
+    const messages = [
+      { role: 'system', content: prompt },
+      { role: 'user', content: input }
+    ]
+    const { choices } = await client.getChatCompletions(deploymentId, messages)
+
     core.info(`Response: ${choices}`)
-    const response = choices[0].text
+    const response = choices[0].delta?.content
     core.setOutput('response', response)
   } catch (error) {
     // Fail the workflow run if an error occurs

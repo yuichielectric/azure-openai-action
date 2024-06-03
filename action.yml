@@ -18,8 +18,11 @@ inputs:
   api_key:
     description: 'The API key to run Azure OpenAI Services'
     required: true
-  prompt:
+  system_prompt:
     description: 'The prompt to pass to the model'
+    required: true
+  input_text:
+    description: 'The text to pass to the model'
     required: true
 
 # Define your outputs here.

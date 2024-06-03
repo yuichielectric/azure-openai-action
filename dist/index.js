@@ -27257,11 +27257,16 @@ async function run() {
         const apiUrl = core.getInput('api_url');
         const deploymentId = core.getInput('deployment_id');
         const apiKey = core.getInput('api_key');
-        const prompt = core.getInput('prompt');
+        const prompt = core.getInput('system_prompt');
+        const input = core.getInput('input_text');
         const client = new openai_1.OpenAIClient(apiUrl, new openai_1.AzureKeyCredential(apiKey));
-        const { choices } = await client.getCompletions(deploymentId, [prompt]);
+        const messages = [
+            { role: 'system', content: prompt },
+            { role: 'user', content: input }
+        ];
+        const { choices } = await client.getChatCompletions(deploymentId, messages);
         core.info(`Response: ${choices}`);
-        const response = choices[0].text;
+        const response = choices[0].delta?.content;
         core.setOutput('response', response);
     }
     catch (error) {
