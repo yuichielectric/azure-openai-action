@@ -27266,7 +27266,7 @@ async function run() {
         ];
         const { choices } = await client.getChatCompletions(deploymentId, messages);
         core.info(`Response: ${choices}`);
-        const response = choices[0].delta?.content;
+        const response = choices[0].message?.content;
         core.setOutput('response', response);
     }
     catch (error) {

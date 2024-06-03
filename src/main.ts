@@ -21,7 +21,7 @@ export async function run(): Promise<void> {
     const { choices } = await client.getChatCompletions(deploymentId, messages)
 
     core.info(`Response: ${choices}`)
-    const response = choices[0].delta?.content
+    const response = choices[0].message?.content
     core.setOutput('response', response)
   } catch (error) {
     // Fail the workflow run if an error occurs
