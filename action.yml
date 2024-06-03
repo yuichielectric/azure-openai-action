@@ -1,0 +1,36 @@
+name: 'The name of your action here'
+description: 'Provide a description here'
+author: 'Your name or organization here'
+
+# Add your action's branding here. This will appear on the GitHub Marketplace.
+branding:
+  icon: 'heart'
+  color: 'red'
+
+# Define your inputs here.
+inputs:
+  api_url:
+    description: 'The endpoint URL of Azure OpenAI Services'
+    required: true
+  api_key:
+    description: 'The API key to run Azure OpenAI Services'
+    required: true
+  model:
+    description: 'The name of the model to be used. Default is "gpt-4o".'
+    required: true
+    default: 'gpt-4o'
+  prompt:
+    description: 'The prompt to pass to the model'
+    required: true
+  input_text:
+    description: 'The input to pass to the model'
+    required: true
+
+# Define your outputs here.
+outputs:
+  response:
+    description: 'The response from Azure OpenAI Services'
+
+runs:
+  using: node20
+  main: dist/index.js
