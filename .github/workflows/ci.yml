@@ -60,7 +60,8 @@ jobs:
           api_url: ${{ secrets.API_URL }}
           deployment_id: ${{ secrets.DEPLOYMENT_ID }}
           api_key: ${{ secrets.API_KEY }}
-          prompt: 'Translate the text into Japanese: "Hello World."'
+          system_prompt: 'Translate the text into Japanese.'
+          input_text: 'Hello, how are you?'
 
       - name: Print Output
         id: output
