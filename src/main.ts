@@ -32,7 +32,9 @@ export async function run(): Promise<void> {
       core.info(`Response: ${JSON.stringify(response.result)}`)
       core.setOutput('response', JSON.stringify(response.result))
     } else {
-      throw new Error(`Failed to call API: ${response.statusCode} - ${response.result}`)
+      throw new Error(
+        `Failed to call API: ${response.statusCode} - ${response.result}`
+      )
     }
   } catch (error) {
     // Fail the workflow run if an error occurs
